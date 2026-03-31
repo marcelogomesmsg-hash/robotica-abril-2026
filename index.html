@@ -204,4 +204,17 @@
 </body>
 </html>
 </body>
+<script>
+  var redirected = false;
+  var observer = new MutationObserver(function() {
+    if (redirected) return;
+    var overlay = document.querySelector('.formkit-overlay, [data-group="modal"], .formkit-modal');
+    if (overlay) {
+      redirected = true;
+      observer.disconnect();
+      window.location.href = 'https://robotechforall.com/obrigado.html';
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>
 </html>
